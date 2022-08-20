@@ -14,7 +14,7 @@ app.use(cors());
 //Logger morgan.
 app.use(morgan('dev'));
 
-//
+//Body with raw format.
 app.use(express.json());
 
 /**
@@ -22,7 +22,7 @@ app.use(express.json());
  * $$$ MIDDLEWARES $$
  * $$$$$$$$$$$$$$$$$$
  */
-const { authUser } = require('./middlewares/authUser');
+const authUser = require('./middlewares/authUser');
 
 /**
  * $$$$$$$$$$$$$$$$$$$$
@@ -54,6 +54,10 @@ app.get('/user', authUser, getOwnUser);
  * $$  NOTES ENPOINTS $$
  * $$$$$$$$$$$$$$$$$$$$$
  */
+const { newNote } = require('./controllers/notes');
+
+//New write note TOKEN.
+app.post('/notes', authUser, newNote);
 
 /**
  * $$$$$$$$$$$$$$$$$$$$$$$

@@ -114,10 +114,10 @@ npm i express dotenv mysql2 bcrypt jsonwebtoken cors.
 
 -   POST: [/notes] - Escribir una nota. **TOKEN**
     ​
--   GET: [/notes] - Mostrar todas las notas.
+-   GET: [/notes] - Mostrar todas los titulos de las notas. **TOKEN**
     ​
--   GET: [/notes/:idNotes] - Mostrar una sola nota.
+-   GET: [/notes/:idNotes] - Mostrar una sola nota. **TOKEN**
     ​
--   PUT: [/notes/:idNotes] - Modificar las notas.**TOKEN**
+-   PUT: [/notes/:idNotes] - Modificar las notas. **TOKEN**
     ​
 -   DELETE: [/notes/:idNotes] - Borrar una nota del usuario que lo creó. **TOKEN**
