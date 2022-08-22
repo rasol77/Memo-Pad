@@ -31,7 +31,7 @@ async function main() {
             title VARCHAR(80) NOT NULL,
             text VARCHAR(1638) NOT NULL,
             image VARCHAR(100),
-            category VARCHAR(50), 
+            category VARCHAR(50) UNIQUE NOT NULL, 
             createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
             modifiedAt TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
            

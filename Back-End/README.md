@@ -12,11 +12,11 @@
 
 -- USUARIOS REGISTRADOS:
 
+        ● Crear una  nota: título, texto, y categoría única(fíjas).
+
         ● Ver el listado de notas (solo ver los títulos).
 
         ● Visualizar una nota.
-
-        ● Crear una  nota: título, texto, y categoría única(fíjas).
 
         ● Modificar sus notas: título, texto y categoría.
 
@@ -114,7 +114,7 @@ npm i express dotenv mysql2 bcrypt jsonwebtoken cors.
 
 -   POST: [/notes] - Escribir una nota. **TOKEN**
     ​
--   GET: [/notes] - Mostrar todas los titulos de las notas. **TOKEN**
+-   GET: [/notes] - Mostrar los titulos de las notas. **TOKEN**
     ​
 -   GET: [/notes/:idNotes] - Mostrar una sola nota. **TOKEN**
     ​
