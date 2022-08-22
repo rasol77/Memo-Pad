@@ -54,7 +54,12 @@ app.get('/user', authUser, getOwnUser);
  * $$  NOTES ENPOINTS $$
  * $$$$$$$$$$$$$$$$$$$$$
  */
-const { newNote, updateNote, getNote } = require('./controllers/notes');
+const {
+    newNote,
+    updateNote,
+    getNote,
+    deleteNote,
+} = require('./controllers/notes');
 
 //New write note TOKEN.
 app.post('/notes', authUser, newNote);
@@ -64,6 +69,8 @@ app.get('/notes/:idNote', authUser, getNote);
 
 //Update note TOKEN.
 app.put('/notes/:idNote', authUser, updateNote);
+
+app.delete('/notes/:idNote', authUser, deleteNote);
 
 /**
  * $$$$$$$$$$$$$$$$$$$$$$$
