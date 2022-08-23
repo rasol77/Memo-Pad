@@ -59,6 +59,7 @@ const {
     updateNote,
     getNote,
     deleteNote,
+    listTitles,
 } = require('./controllers/notes');
 
 //New write note TOKEN.
@@ -67,9 +68,13 @@ app.post('/notes', authUser, newNote);
 //Get only note.
 app.get('/notes/:idNote', authUser, getNote);
 
+//List titles TOKEN
+app.get('/notes', authUser, listTitles);
+
 //Update note TOKEN.
 app.put('/notes/:idNote', authUser, updateNote);
 
+//Delete note TOKEN
 app.delete('/notes/:idNote', authUser, deleteNote);
 
 /**

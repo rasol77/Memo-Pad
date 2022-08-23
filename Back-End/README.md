@@ -22,7 +22,9 @@
 
         ● Opcional
                 - Marcar una nota como pública:
-                Por origen todas las notas son privadas y solo puede verlas el usuario que las crea, pero sí una nota se marca como pública esta se puede ver por todos los  usuarios. Las notas públicas solo se pueden ver si se conoce la URL.
+                Por origen todas las notas son privadas y solo puede verlas el usuario que las crea,
+                pero sí una nota se marca como pública esta se puede ver por todos los  usuarios.
+                Las notas públicas solo se pueden ver si se conoce la URL.
 
                 - Eliminar una nota
 
@@ -61,9 +63,22 @@ Que son dependencias de desarrollo.
 npm i express dotenv mysql2 bcrypt jsonwebtoken cors.
 ```
 
--   Ejecutar npm run initDB para crear las tablas necesarias en la base de datos anteriormente creada.
-    ​
--   Ejecutar npm run dev o npm start para lanzar el servidor.
+-   Ejecutar
+
+```
+npm run initDB
+```
+
+Para crear las tablas necesarias en la base de datos anteriormente creada.
+​
+
+-   Ejecutar
+
+```
+ npm run dev o npm start
+```
+
+Para lanzar el servidor.
 
 -   Crear token de usuarios.
     ​
