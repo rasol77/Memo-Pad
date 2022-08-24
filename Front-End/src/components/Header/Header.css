@@ -1,0 +1,8 @@
+header{
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+    color: var(--secondary-color)
+}
