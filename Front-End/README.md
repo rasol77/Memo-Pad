@@ -8,6 +8,8 @@
 
 - [/notes] Para escribir una nueva nota.
 
+---
+
 1. Establecer rutas de acceso.
 
 2. Página de registro.
