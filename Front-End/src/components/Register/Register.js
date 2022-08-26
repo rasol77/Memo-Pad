@@ -1,11 +1,19 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { useToken } from '../../Context/TokenContext';
 import './Register.css';
 
 const Register = () => {
+  //Gancho del Token
+  const [token] = useToken();
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  //Si entramos a la página correctament los mandamos a loguearse.
+  if (token) return <Navigate to="/login" />;
 
   //Función manejadora para enviar el formulario.
   const handleSubmit = async (e) => {

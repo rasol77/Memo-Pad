@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { useToken } from '../../Context/TokenContext';
 
 import './Login.css';
@@ -10,6 +11,9 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  //Si entramos a la página correctament los mandamos al Home Page.
+  if (token) return <Navigate to="/" />;
 
   //Función manejadora para enviar el formulario.
   const handleSubmit = async (e) => {
