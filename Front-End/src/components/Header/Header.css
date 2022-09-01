@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&display=swap');
 header{
     display: flex;
     align-items: center;
@@ -5,4 +6,79 @@ header{
     justify-content: space-between;
     background-color: var(--primary-color);
     color: var(--secondary-color)
+}
+
+ a {
+     font-family: 'Alumni Sans Collegiate One', sans-serif;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 5rem;
+    text-shadow: 1rem;
+    -webkit-text-stroke: 1px black;
+    
+}
+
+nav{
+    display: flex;
+    gap: 1rem;
+}
+
+nav > p {
+    align-self: center;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+nav > div.button {
+    height: 90px;
+    width: 180px;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: white;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+nav > div.button:active {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+nav > div.button:first-child {
+    margin-right: 1rem;
+}
+
+nav > div.button a {
+    text-decoration: none;
+    
+}
+
+ .Mensagge {
+    
+    height: 90px;
+    width: 150px;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: white;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+.Logout  {
+    
+    height: 90px;
+    width: 180px;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: white;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+.Logout > p{
+    font-family: 'Alumni Sans Collegiate One', sans-serif;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 5rem;
+    text-shadow: 1rem;
+    -webkit-text-stroke: 1px black;
+    
 }

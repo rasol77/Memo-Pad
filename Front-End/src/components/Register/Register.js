@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useToken } from '../../Context/TokenContext';
 import './Register.css';
 
 const Register = () => {
   //Gancho del Token
   const [token] = useToken();
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -35,6 +36,12 @@ const Register = () => {
       });
 
       const body = await res.json();
+
+      if (body.status === 'error') {
+      } else {
+        navigate('/login');
+      }
+
       window.alert(body.message);
     } catch (error) {
       console.error(error);

@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+.NoteTitle {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+    align-items: center;
+}
+
+.NoteTitle form {
+    display: flex;
+    margin-top:  2.5rem;
+}
+
+.NoteTitle > form > input{
+    width: 250px;
+    height: 50px;
+    font-size: 1.5rem;
+    border: 1px solid rgb(118,   118, 118);
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.NoteTitle > form > button {
+    
+   height: 50px;
+   
+   border: 2px solid black;
+   border-radius: 8px;
+   font-size: 30px;
+
+   display: grid;
+   place-content: center;
+   box-shadow: 5px 5px rgba(0,0,0,0.5);
+}
+
+ul.NoteList {
+    margin-top: 2rem;
+    list-style: none;
+}
