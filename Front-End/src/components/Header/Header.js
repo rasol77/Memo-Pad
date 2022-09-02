@@ -32,7 +32,7 @@ const Header = () => {
         <NavLink to="/">Note Pad</NavLink>
       </h1>
       <nav>
-        {/* {token && <p>@{username}</p>} */}
+        {token && <p>@{username}</p>}
         {!token && (
           <div className="button">
             <NavLink to="/login">Login</NavLink>

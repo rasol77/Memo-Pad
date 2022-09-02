@@ -3,6 +3,7 @@ import Footer from './components/Footer/Footer';
 import Register from './components/Register/Register';
 import NoteTitle from './components/NoteTitle/NoteTitle';
 import Login from './components/Login/Login';
+import NoteNew from './components/NoteNew/NoteNew';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -15,8 +16,9 @@ function App() {
       <Routes>
         <Route path="/" element={<NoteTitle />} />
         <Route path="/signup" element={<Register />} />
+        <Route path="/signup" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NoteTitle />} />
+        <Route path="/note" element={<NoteNew />} />
       </Routes>
       <Footer />
     </div>

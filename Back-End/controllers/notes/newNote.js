@@ -1,6 +1,8 @@
 const newNoteQuery = require('../../db/notesQueries/newNoteQuery');
+const path = require('path');
+const sharp = require('sharp');
 
-const { generateError } = require('../../helpers');
+const { generateError, createPathIfNotExists } = require('../../helpers');
 
 const newNote = async (req, res, next) => {
     try {
@@ -14,8 +16,34 @@ const newNote = async (req, res, next) => {
             );
         }
 
+        //save the image.
+        let imgName;
+
+        //if the image exists we save it.
+        if (req.files && req.files.img) {
+            //Make absolute path  to the download directory.
+            const uploadsDir = path.join(__dirname, '../../uploads');
+
+            //Make de directory.
+            await createPathIfNotExists(uploadsDir);
+
+            //We process the image and we convert into object type Sharp.
+            const SharpImg = sharp(req.files.image.data);
+
+            //resize the image in 500px to width
+            SharpImg.resize(500);
+
+            //Generate a unique name for the image.
+
+            //Generate the path absolute to image.
+            const imgPath = path.join(uploadsDir, imgName);
+
+            //Save the image into the directory.
+            await SharpImg.toFile(imgPath);
+        }
+
         //Add new note.
-        await newNoteQuery(req.idUser, title, text, category);
+        await newNoteQuery(req.idUser, title, text, imgName, category);
 
         res.send({
             status: 'ok',

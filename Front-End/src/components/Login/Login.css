@@ -8,5 +8,28 @@
    .Login > form {
        display: flex;
        flex-direction: column;
+       height: 80px;
+       width: 200px;
        gap: 0.8rem;
+   }
+   .Login > form > input{
+    width: 100%;
+    min-height: 40px;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 0.5rem;
+    
+
+}
+   .Login > form >button {
+    margin-top: 0.8rem;
+    height: 50px;
+   
+   border: 2px solid black;
+   border-radius: 8px;
+   font-size: 30px;
+
+   display: grid;
+   place-content: center;
+   box-shadow: 5px 5px rgba(0,0,0,0.5)
    }

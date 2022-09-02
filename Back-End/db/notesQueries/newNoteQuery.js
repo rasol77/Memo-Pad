@@ -1,6 +1,6 @@
 const getConnection = require('../getConnection');
 
-const newNoteQuery = async (idUser, title, text, category) => {
+const newNoteQuery = async (idUser, title, text, image, category) => {
     let connection;
 
     try {
