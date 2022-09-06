@@ -31,8 +31,8 @@ const Header = () => {
       <h1>
         <NavLink to="/">Note Pad</NavLink>
       </h1>
+      {token && <p>@{username}</p>}
       <nav>
-        {token && <p>@{username}</p>}
         {!token && (
           <div className="button">
             <NavLink to="/login">Login</NavLink>

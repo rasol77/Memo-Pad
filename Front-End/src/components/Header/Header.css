@@ -1,10 +1,17 @@
+*{
+    padding: 0;
+    box-sizing: 0;
+    
+}
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&display=swap');
 header{
     display: flex;
     align-items:center;
     padding: 2rem;
+    width: 105%;
     flex-direction: column;
-    width: 100%;
+    
+    height: auto;
     
     background-color: var(--primary-color);
     color: var(--secondary-color)
@@ -29,6 +36,7 @@ nav > p {
     align-self: center;
     font-weight: bold;
     font-family: sans-serif;
+    margin-top: 1rem;
 }
 
 nav > div.button {
@@ -87,14 +95,26 @@ nav > div.button a {
 
 /* RESPONSIVE */
 @media (min-width: 800px) {
-    header{
-        margin: 0 auto;
-        width: 100%;
+header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         flex-direction: row;
-        gap: 5rem;
+        width: 100%;
+        gap: 2rem;
+       
     }
-}
-nav > div.button {
-    align-items:flex-end;
-    text-align: center;
+    nav > div.button {
+        align-items:flex-end;
+        text-align: center;
+        gap: 2rem;
+    }
+    nav > p {
+        align-self: center;
+        font-weight: bold;
+        font-family: sans-serif;
+        gap: 1rem;
+    }
+    
+
 }

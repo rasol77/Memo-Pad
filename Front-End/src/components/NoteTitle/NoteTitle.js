@@ -39,11 +39,28 @@ const NoteTitle = () => {
       }
     };
     fetchData();
-  }, [token]);
+  }, [token, setNotes]);
+
+  //Función encargada del evento de formulario.
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    //Si tenemos ek token lo mandamos por las cabezeras.
+    const params = token ? { headers: { Authorization: token } } : {};
+
+    try {
+      const res = await fetch(
+        `http://localhost:4000/notes?keyword=${keyword}`,
+        params
+      );
+    } catch (error) {}
+  };
 
   return (
     <main className="NoteTitle">
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="keyword"
@@ -57,7 +74,7 @@ const NoteTitle = () => {
           {notes.map((note) => {
             return (
               <Note
-                key={note.id}
+                key={note.title}
                 note={note}
                 notes={notes}
                 setNotes={setNotes}
