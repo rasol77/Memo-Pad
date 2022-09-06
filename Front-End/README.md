@@ -20,4 +20,4 @@
 
 5. Página para ver solo los titulos de las notas.
 
-6. Página de ver una Nota por su ID.
+6. Página para ver una Nota por su ID.
