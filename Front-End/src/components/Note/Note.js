@@ -1,26 +1,44 @@
 import './Note.css';
 import { format } from 'date-fns';
 import { useToken } from '../../Context/TokenContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
 
-const Note = (note, notes, setNotes) => {
+const Note = () => {
   //Hooks del TOKEN.
+  const { id } = useParams();
+
   const [token] = useToken();
-  const dateTime = format(new Date(note.createdAt), 'yyyy-MM-dd');
 
-  const getNote = async (e, idNote) => {
-    try {
-      const res = await fetch(`http://localhost:4000/notes/${idNote}`);
+  const [note, setNote] = useState(null);
 
-      const data = await res.json();
+  useEffect(() => {
+    const getNote = async () => {
+      try {
+        const res = await fetch(`http://localhost:4000/notes/${id}`, {
+          headers: {
+            Authorization: token,
+          },
+        });
 
-      //si no consigue acceder a la API damos error.
-      if (data.status === 'error') {
+        const { data } = await res.json();
+
+        //si no consigue acceder a la API damos error.
+        if (data.status === 'error') {
+          console.error('error');
+        } else {
+          setNote(data.note);
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    };
+    if (token) getNote();
+  }, [id, token]);
+
+  if (!token) return <Navigate to={'/login'} />;
+
+  if (!note) return <p>Cargando...</p>;
 
   return (
     <li className="Note">
@@ -31,11 +49,13 @@ const Note = (note, notes, setNotes) => {
       <div>
         <h2>{note.title}</h2>
         <p>{note.text}</p>
+        <img
+          src={`http://localhost:4000${note.image}`}
+          alt="Imagen de la Nota"
+        />
+        <h5>{note.Category}</h5>
       </div>
-      <footer>
-        <div></div>
-        {token && note.owner === 1 && <button onClick>Borrar Nota </button>}
-      </footer>
+      <footer>{<button onClick>Borrar Nota </button>}</footer>
     </li>
   );
 };

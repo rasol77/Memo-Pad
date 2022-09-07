@@ -10,3 +10,24 @@
     flex-direction: column;
     gap: 0.8rem;
 }
+
+.Register > form > input{
+    width: 100%;
+    min-height: 40px;
+    border: 2px solid ;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.Register > form > button{
+    margin-top: 0.8rem;
+    height: 50px;
+
+    border: 2px solid;
+    border-radius: 1rem;
+    font-size: 30px;
+
+    display: grid;
+    place-content: center;
+    box-shadow:  5px 5px rgba(0,0,0,0.5);
+}

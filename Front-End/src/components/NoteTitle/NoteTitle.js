@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { format } from 'date-fns';
+
 import { useToken } from '../../Context/TokenContext';
 import './NoteTitle.css';
 
-import Note from '../Note/Note';
+// import Note from '../Note/Note';
+import { Link, Navigate } from 'react-router-dom';
 
 const NoteTitle = () => {
   //Hooks del TOKEN.
@@ -21,7 +22,7 @@ const NoteTitle = () => {
       setLoading(true);
 
       try {
-        const params = token ? { headers: { Authorization: token } } : {};
+        const params = { headers: { Authorization: token } };
 
         const res = await fetch('http://localhost:4000/notes', params);
 
@@ -30,7 +31,7 @@ const NoteTitle = () => {
         if (body.status === 'error') {
           window.alert(body.message);
         } else {
-          setNotes(body.data.notes);
+          setNotes(body.data.title);
         }
       } catch (error) {
         console.error(error);
@@ -38,7 +39,7 @@ const NoteTitle = () => {
         setLoading(false);
       }
     };
-    fetchData();
+    if (token) fetchData();
   }, [token, setNotes]);
 
   //Función encargada del evento de formulario.
@@ -47,16 +48,30 @@ const NoteTitle = () => {
 
     setLoading(true);
 
-    //Si tenemos ek token lo mandamos por las cabezeras.
-    const params = token ? { headers: { Authorization: token } } : {};
+    //Si tenemos el token lo mandamos por las cabezeras.
+    const params = { headers: { Authorization: token } };
 
     try {
       const res = await fetch(
-        `http://localhost:4000/notes?keyword=${keyword}`,
+        `http://localhost:4000/notes/?keyword=${keyword}`,
         params
       );
-    } catch (error) {}
+      const body = await res.json();
+
+      //Mandamos el error.
+      if (body.status === 'error') {
+        window.alert(body.message);
+      } else {
+        setNotes(body.note);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  if (!token) return <Navigate to={'/login'} />;
 
   return (
     <main className="NoteTitle">
@@ -73,12 +88,9 @@ const NoteTitle = () => {
         <ul className="NoteList">
           {notes.map((note) => {
             return (
-              <Note
-                key={note.title}
-                note={note}
-                notes={notes}
-                setNotes={setNotes}
-              />
+              <li className="List" key={note.id}>
+                <Link to={`/view/${note.id}`}>{note.title}</Link>
+              </li>
             );
           })}
         </ul>

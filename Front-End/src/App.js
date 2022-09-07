@@ -8,6 +8,7 @@ import NoteNew from './components/NoteNew/NoteNew';
 import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import Note from './components/Note/Note';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signup" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/note" element={<NoteNew />} />
+        <Route path="/view/:id" element={<Note />} />
       </Routes>
       <Footer />
     </div>

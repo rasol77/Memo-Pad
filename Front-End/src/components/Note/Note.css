@@ -1,0 +1,37 @@
+.Note{
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.374);
+    list-style: none;
+}
+
+
+.Note > header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding: 1rem 1rem;
+    background-color: var(--primary-color)
+    
+}
+
+.Note > div{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    padding-top: 1rem;
+}
+.Note > div > p {
+    padding: 1rem;
+}
+
+.Note > div > h5 {
+    text-align: end;
+    padding-bottom: 0.5rem;
+    padding-top: 0.2rem;
+    color: rgb(143, 3, 3);
+    font-style: italic;
+}
+.Note > footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
