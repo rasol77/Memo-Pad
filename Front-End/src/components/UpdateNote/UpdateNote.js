@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useToken } from '../../Context/TokenContext';
-import './NoteNew.css';
+import { TokenProvider } from '../../Context/TokenContext';
+import './UpdateNote.css';
 
-const NoteNew = () => {
-  //Hooks del TOKEN.
-  const [token] = useToken();
+const UpdateNote = () => {
+  const [token] = useToken(TokenProvider);
   const navigate = useNavigate();
 
   //Variables del Estado.
@@ -15,27 +15,26 @@ const NoteNew = () => {
   const [category, setCategory] = useState('');
   const [loading, setLoading] = useState(false);
 
-  //Si no existe el token o se ha escrito bien la nota le mandamos al .
+  //Si no existe el token o se ha escrito bien la nota le mandamos al Home.
   if (!token) return <Navigate to={'/'} />;
 
-  //Función manejadora del  envio de formulario.
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, id) => {
     e.preventDefault(e);
 
     setLoading(true);
 
     try {
-      //Enviamos un form/data  para enviarlo.
+      //Enviamos un form/data para Enviar al server.
       const formData = new FormData();
 
-      //Introducimos los elementos con el método  adjuntar.
+      //Push the elements with the method append.
       formData.append('title', title);
       formData.append('image', file);
       formData.append('text', text);
       formData.append('category', category);
 
-      const res = await fetch('http://localhost:4000/notes', {
-        method: 'POST',
+      const res = await fetch(`http://localhost:4000/notes/${id}`, {
+        method: 'PUT',
         headers: {
           Authorization: token,
         },
@@ -57,30 +56,27 @@ const NoteNew = () => {
   };
 
   return (
-    <main className="NoteNew">
+    <main className="UpdateNote">
       <form onSubmit={handleSubmit}>
         <input
           placeholder="Title"
           type="title"
           name="title"
-          value={title}
           required
           onChange={(e) => setTitle(e.target.value)}
         />
-
         <input
+          placeholder="File"
           type="file"
-          name="file"
+          name="title"
           onChange={(e) => setFile(e.target.file[0])}
         />
-
         <textarea
-          placeholder="Write Note"
+          placeholder="Write Other Note"
           value={text}
           required
           onChange={(e) => setText(e.target.value)}
         />
-
         <input
           placeholder="Category"
           type="category"
@@ -96,4 +92,4 @@ const NoteNew = () => {
   );
 };
 
-export default NoteNew;
+export default UpdateNote;

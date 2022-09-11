@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useToken } from '../../Context/TokenContext';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
@@ -46,6 +46,11 @@ const Header = () => {
         {token && (
           <div className="Mensagge">
             <NavLink to="/note">Note</NavLink>
+          </div>
+        )}
+        {token && (
+          <div className="Mensagge">
+            <NavLink to="/note/:id/edit">Up Note</NavLink>
           </div>
         )}
         {token && (

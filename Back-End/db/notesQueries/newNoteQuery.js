@@ -7,8 +7,8 @@ const newNoteQuery = async (idUser, title, text, image, category) => {
         connection = await getConnection();
 
         await connection.query(
-            'INSERT INTO notes (idUser, title, text, category) VALUES (?, ?, ?, ?)',
-            [idUser, title, text, category]
+            'INSERT INTO notes (idUser, title, text,  category) VALUES (?, ?, ?, ?, ?)',
+            [idUser, title, text, image, category]
         );
     } finally {
         connection.release();

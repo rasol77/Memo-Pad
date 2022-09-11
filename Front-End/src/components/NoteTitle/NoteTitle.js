@@ -50,7 +50,6 @@ const NoteTitle = () => {
 
     //Si tenemos el token lo mandamos por las cabezeras.
     const params = { headers: { Authorization: token } };
-
     try {
       const res = await fetch(
         `http://localhost:4000/notes/?keyword=${keyword}`,

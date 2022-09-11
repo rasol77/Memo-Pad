@@ -2,7 +2,7 @@ import './Note.css';
 import { format } from 'date-fns';
 import { useToken } from '../../Context/TokenContext';
 import { useEffect, useState } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, NavLink, useParams } from 'react-router-dom';
 
 const Note = () => {
   //Hooks del TOKEN.
@@ -20,7 +20,7 @@ const Note = () => {
             Authorization: token,
           },
         });
-
+        console.log(res);
         const { data } = await res.json();
 
         //si no consigue acceder a la API damos error.
@@ -50,12 +50,20 @@ const Note = () => {
         <h2>{note.title}</h2>
         <p>{note.text}</p>
         <img
-          src={`http://localhost:4000${note.image}`}
+          src={`http://localhost:4000/${note.image}`}
           alt="Imagen de la Nota"
         />
-        <h5>{note.Category}</h5>
+        <h5>{note.category}</h5>
       </div>
-      <footer>{<button onClick>Borrar Nota </button>}</footer>
+
+      <div>
+        {/* /* {token &&
+            note.id ===
+              user.id( */}
+        <button className="EditNote">
+          <NavLink to={`note/${note.id}/edit`}>Modificar</NavLink>
+        </button>
+      </div>
     </li>
   );
 };

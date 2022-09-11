@@ -13,6 +13,7 @@ const selectAllTitlesQuery = async () => {
             ORDER BY N.createdAt DESC
             `
         );
+        console.log(titles);
 
         return titles;
     } finally {

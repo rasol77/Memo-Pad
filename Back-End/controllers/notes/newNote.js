@@ -1,6 +1,7 @@
 const newNoteQuery = require('../../db/notesQueries/newNoteQuery');
 const path = require('path');
 const sharp = require('sharp');
+const { nanoid } = require('nanoid');
 
 const { generateError, createPathIfNotExists } = require('../../helpers');
 
@@ -20,7 +21,7 @@ const newNote = async (req, res, next) => {
         let imgName;
 
         //if the image exists we save it.
-        if (req.files && req.files.img) {
+        if (req.files && req.files.image) {
             //Make absolute path  to the download directory.
             const uploadsDir = path.join(__dirname, '../../uploads');
 
@@ -34,6 +35,7 @@ const newNote = async (req, res, next) => {
             SharpImg.resize(500);
 
             //Generate a unique name for the image.
+            imgName = `${nanoid(21)}.jpg`;
 
             //Generate the path absolute to image.
             const imgPath = path.join(uploadsDir, imgName);

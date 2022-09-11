@@ -4,6 +4,7 @@ import Register from './components/Register/Register';
 import NoteTitle from './components/NoteTitle/NoteTitle';
 import Login from './components/Login/Login';
 import NoteNew from './components/NoteNew/NoteNew';
+import UpdateNote from './components/UpdateNote/UpdateNote';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/note" element={<NoteNew />} />
         <Route path="/view/:id" element={<Note />} />
+        <Route path="view/11/note/11/edit" element={<UpdateNote />} />
       </Routes>
       <Footer />
     </div>

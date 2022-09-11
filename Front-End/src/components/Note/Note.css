@@ -1,6 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
 .Note{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    align-items: center;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.374);
     list-style: none;
+    width: 80%;
+    
+    
 }
 
 
@@ -8,19 +20,32 @@
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
-    padding: 1rem 1rem;
-    background-color: var(--primary-color)
-    
+    padding: 1rem   ;
+    background-color: var(--primary-color);
+  
+     
 }
 
 .Note > div{
     display: flex;
     flex-direction: column;
-    padding: 1rem 1rem;
-    padding-top: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  
+
 }
+
 .Note > div > p {
+    margin-top: 1rem;
     padding: 1rem;
+    align-items: center;
+
+   
+}
+.Note > div > img{
+    width: 50%;
+    align-items: center;
+    padding-left: 1rem;
 }
 
 .Note > div > h5 {
@@ -29,9 +54,11 @@
     padding-top: 0.2rem;
     color: rgb(143, 3, 3);
     font-style: italic;
+    margin-right: 1rem;
 }
-.Note > footer{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+button.EditNote{
+    height: 80px;
+    width: 100px;
+    
 }
+

@@ -12,6 +12,7 @@ const getNote = async (req, res, next) => {
                 note,
             },
         });
+        console.log(note);
     } catch (error) {
         next(error);
     }

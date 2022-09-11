@@ -7,14 +7,16 @@ const selectNoteByIdQuery = async (idNote) => {
 
         const [notes] = await connection.query(
             `
-            SELECT N.id, N.idUser, U.email, U.username, N.title, N.text, N.Category, N.createdAt
+            SELECT N.id, N.idUser, U.email, U.username, N.title, N.text, N.image,  N.category, N.createdAt
             FROM notes N
             LEFT JOIN users U
             ON N.idUser = U.id
-            WHERE U.id = ?
+            WHERE N.id = ?
+            
             `,
             [idNote]
         );
+        console.log(notes);
         return notes[0];
     } finally {
         if (connection) {
