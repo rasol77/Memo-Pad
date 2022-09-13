@@ -1,12 +1,14 @@
 # Rutas
 
-- [/] Página de inicio.
+- [/] Página de inicio donde se ven los títulos de las notas.
 
-- [/register] Registro de usuario.
+- [/signup] Registro de usuario.
 
-- [/login] Página de entrada del usuario .
+- [/login] Página de entrada del usuario.
 
-- [/notes] Para escribir una nueva nota.
+- [/note] Para escribir una nueva nota.
+
+- [/view:id] Para visualizar una sola nota.
 
 ---
 

@@ -3,7 +3,7 @@ const { generateError } = require('../../helpers');
 
 const updateNote = async (req, res, next) => {
     try {
-        const { title, text, category } = req.body;
+        const { title, text, image, category } = req.body;
         const { idNote } = req.params;
 
         //If the title, text and category is empty and the text is longer than 1638 characters.
@@ -15,11 +15,11 @@ const updateNote = async (req, res, next) => {
         }
 
         //Update note.
-        await updateNoteQuery(req.idUser, idNote, title, text, category);
+        await updateNoteQuery(req.idUser, idNote, title, text, image, category);
 
         res.send({
             status: 'ok',
-            message: 'Note created successfully ',
+            message: 'Note updated successfully ',
         });
     } catch (error) {
         next(error);

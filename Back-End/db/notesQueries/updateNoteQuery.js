@@ -1,7 +1,14 @@
 const getConnection = require('../getConnection');
 const { generateError } = require('../../helpers');
 
-const updateNoteQuery = async (idUser, idNotes, title, text, category) => {
+const updateNoteQuery = async (
+    idUser,
+    idNotes,
+    title,
+    text,
+    image,
+    category
+) => {
     let connection;
     try {
         connection = await getConnection();
@@ -18,8 +25,8 @@ const updateNoteQuery = async (idUser, idNotes, title, text, category) => {
 
         //Updating note.
         await connection.query(
-            'UPDATE notes SET title = ?, text = ?, category = ? WHERE id = ?',
-            [title, text, category, idNotes]
+            'UPDATE notes SET title = ?, text = ?, image = ?, category = ? WHERE id = ?',
+            [title, text, image, category, idNotes]
         );
     } finally {
         if (connection) connection.release();

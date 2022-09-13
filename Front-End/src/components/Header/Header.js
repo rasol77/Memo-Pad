@@ -48,11 +48,7 @@ const Header = () => {
             <NavLink to="/note">Note</NavLink>
           </div>
         )}
-        {token && (
-          <div className="Mensagge">
-            <NavLink to="/note/:id/edit">Up Note</NavLink>
-          </div>
-        )}
+
         {token && (
           <div className="Logout" onClick={() => setToken(null)}>
             <p>Logout</p>

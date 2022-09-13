@@ -71,7 +71,7 @@ const NoteNew = () => {
         <input
           type="file"
           name="file"
-          onChange={(e) => setFile(e.target.file[0])}
+          onChange={(e) => setFile(e.target.files[0])}
         />
 
         <textarea

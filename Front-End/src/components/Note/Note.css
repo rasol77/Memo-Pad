@@ -1,16 +1,17 @@
 *{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     
 }
 .Note{
-    margin-left: 1rem;
+    margin-left: 5rem;
     margin-right: 1rem;
     align-items: center;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.374);
     list-style: none;
-    width: 80%;
+    margin-bottom: 1rem;
+    
     
     
 }
@@ -20,7 +21,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
-    padding: 1rem   ;
+    padding: 0.8rem   ;
     background-color: var(--primary-color);
   
      
@@ -30,7 +31,8 @@
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
-    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
   
 
 }
@@ -50,15 +52,42 @@
 
 .Note > div > h5 {
     text-align: end;
-    padding-bottom: 0.5rem;
     padding-top: 0.2rem;
     color: rgb(143, 3, 3);
     font-style: italic;
     margin-right: 1rem;
 }
-button.EditNote{
-    height: 80px;
-    width: 100px;
+div > button{
+    flex-direction: row;
+    gap: 1rem;
+}
+
+div > button.EditNote{
+    text-align: center;
+    align-items:flex-end;
+    height: 65px;
+    width: 10rem;
+    font-family: sans-serif;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--primary-color);
+   
+}
+div > button.Trash{
+    align-items: center;
+    text-align: center;
+    height: 4rem;
+    width: 6rem;
+    font-size: 3rem;
+    margin-bottom: 1.8rem;
     
 }
 
+
+/* RESPONSIVE */
+@media (min-width: 800px) {
+    .Note{
+        width: 80%;
+    }
+
+}

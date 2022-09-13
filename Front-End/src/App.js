@@ -18,11 +18,10 @@ function App() {
       <Routes>
         <Route path="/" element={<NoteTitle />} />
         <Route path="/signup" element={<Register />} />
-        <Route path="/signup" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/note" element={<NoteNew />} />
         <Route path="/view/:id" element={<Note />} />
-        <Route path="view/11/note/11/edit" element={<UpdateNote />} />
+        <Route path="/view/:id/note/:id/edit" element={<UpdateNote />} />
       </Routes>
       <Footer />
     </div>

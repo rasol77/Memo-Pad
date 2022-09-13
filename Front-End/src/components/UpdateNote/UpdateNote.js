@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useToken } from '../../Context/TokenContext';
-import { TokenProvider } from '../../Context/TokenContext';
+
 import './UpdateNote.css';
 
 const UpdateNote = () => {
-  const [token] = useToken(TokenProvider);
+  const [token] = useToken();
   const navigate = useNavigate();
 
   //Variables del Estado.
@@ -40,6 +40,7 @@ const UpdateNote = () => {
         },
         body: formData,
       });
+      console.log(id);
 
       const body = await res.json();
 
@@ -62,6 +63,7 @@ const UpdateNote = () => {
           placeholder="Title"
           type="title"
           name="title"
+          value={title}
           required
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -69,7 +71,7 @@ const UpdateNote = () => {
           placeholder="File"
           type="file"
           name="title"
-          onChange={(e) => setFile(e.target.file[0])}
+          onChange={(e) => setFile(e.target.files[0])}
         />
         <textarea
           placeholder="Write Other Note"
