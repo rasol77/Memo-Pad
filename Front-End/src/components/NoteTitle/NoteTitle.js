@@ -52,7 +52,7 @@ const NoteTitle = () => {
     const params = { headers: { Authorization: token } };
     try {
       const res = await fetch(
-        `http://localhost:4000/notes/?keyword=${keyword}`,
+        `http://localhost:4000/notes/?${keyword}`,
         params
       );
       const body = await res.json();

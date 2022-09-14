@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useToken } from '../../Context/TokenContext';
 
 import './UpdateNote.css';
@@ -7,6 +7,7 @@ import './UpdateNote.css';
 const UpdateNote = () => {
   const [token] = useToken();
   const navigate = useNavigate();
+  const { idNote } = useParams();
 
   //Variables del Estado.
   const [title, setTitle] = useState('');
@@ -33,14 +34,14 @@ const UpdateNote = () => {
       formData.append('text', text);
       formData.append('category', category);
 
-      const res = await fetch(`http://localhost:4000/notes/${id}`, {
+      const res = await fetch(`http://localhost:4000/notes/${idNote}`, {
         method: 'PUT',
         headers: {
           Authorization: token,
         },
         body: formData,
       });
-      console.log(id);
+      console.log(idNote);
 
       const body = await res.json();
 

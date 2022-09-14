@@ -57,10 +57,7 @@
     font-style: italic;
     margin-right: 1rem;
 }
-div > button{
-    flex-direction: row;
-    gap: 1rem;
-}
+
 
 div > button.EditNote{
     text-align: center;

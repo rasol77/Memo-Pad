@@ -94,7 +94,7 @@ const Note = () => {
       <div>
         {token && (
           <button className="EditNote">
-            <NavLink to={`note/${note.id}/edit`}>Modify</NavLink>
+            <NavLink to={`edit/${note.idNote}`}>Modify</NavLink>
           </button>
         )}
         {token && (

@@ -21,7 +21,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/note" element={<NoteNew />} />
         <Route path="/view/:id" element={<Note />} />
-        <Route path="/view/:id/note/:id/edit" element={<UpdateNote />} />
+        <Route path="/view/:id/edit/:id" element={<UpdateNote />} />
+        <Route path="*" element={<NoteTitle />} />
       </Routes>
       <Footer />
     </div>
