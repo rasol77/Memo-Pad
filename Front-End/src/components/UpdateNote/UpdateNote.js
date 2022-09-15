@@ -40,7 +40,7 @@ const UpdateNote = () => {
         },
         body: formData,
       });
-      console.log(idNote);
+     
 
       const body = await res.json();
 
