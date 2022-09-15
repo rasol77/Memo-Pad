@@ -8,9 +8,9 @@
 
 - [/note] Para escribir una nueva nota.
 
-- [/view/:id] Para visualizar una sola nota.
+- [/note/:id] Para visualizar una sola nota.
 
-- [/view/:id/edit/:id] No funciona por que dice que (Tú no eres el propietario de esta nota).
+- [/note/:id/edit] Para editar una nota.
 
 ---
 
