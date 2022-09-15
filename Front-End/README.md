@@ -22,6 +22,6 @@
 
 4. Página para crear las Notas.
 
-5. Página para ver solo los titulos de las notas.
+5. Página para ver solo los títulos de las notas.
 
 6. Página para ver una Nota por su ID.

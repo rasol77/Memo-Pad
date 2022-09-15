@@ -88,7 +88,7 @@ const NoteTitle = () => {
           {notes.map((note) => {
             return (
               <li className="List" key={note.id}>
-                <Link to={`/view/${note.id}`}>{note.title}</Link>
+                <Link to={`/note/${note.id}`}>{note.title}</Link>
               </li>
             );
           })}

@@ -7,7 +7,7 @@ import './UpdateNote.css';
 const UpdateNote = () => {
   const [token] = useToken();
   const navigate = useNavigate();
-  const { idNote } = useParams();
+  const { id } = useParams();
 
   //Variables del Estado.
   const [title, setTitle] = useState('');
@@ -19,9 +19,8 @@ const UpdateNote = () => {
   //Si no existe el token o se ha escrito bien la nota le mandamos al Home.
   if (!token) return <Navigate to={'/'} />;
 
-  const handleSubmit = async (e, id) => {
+  const handleSubmit = async (e, idNote) => {
     e.preventDefault(e);
-
     setLoading(true);
 
     try {
@@ -59,7 +58,7 @@ const UpdateNote = () => {
 
   return (
     <main className="UpdateNote">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e, id)}>
         <input
           placeholder="Title"
           type="title"
